@@ -30,42 +30,42 @@ class Person
   end
 
   def clean?
-    self.hygiene > 7
+    hygiene > 7
   end
 
   def happy?
-    self.happiness > 7
+    happiness > 7
   end
 
   def get_paid(salary)
-    self.bank_account = self.bank_account + salary
+    self.bank_account += salary
     'all about the benjamins'
   end
 
   def take_bath
-    self.hygiene += 4
+    more_hygiene(4)
     return '♪ Rub-a-dub just relaxing in the tub ♫'
   end
 
   def work_out
-    self.hygiene -= 3
-    self.more_happy(2)
+    less_hygiene(3)
+    more_happy(2)
     '♪ another one bites the dust ♫'
   end
 
   def call_friend(person)
-    self.more_happy(3)
+    more_happy(3)
     person.more_happy(3)
     "Hi #{person.name}! It\'s #{self.name}. How are you?"
   end
 
   def start_conversation(person, topic)
     if topic == 'politics'
-      self.less_happy(2)
+      less_happy(2)
       person.less_happy(2)
       'blah blah partisan blah lobbyist'
     elsif topic == 'weather'
-      self.more_happy(1)
+      more_happy(1)
       person.more_happy(1)
       'blah blah sun blah rain'
     else
@@ -80,4 +80,13 @@ class Person
   def less_happy(happiness_points)
     self.happiness = self.happiness - happiness_points
   end
+
+  def more_hygiene(hygiene_points)
+    self.hygiene = self.hygiene + hygiene_points
+  end
+
+  def less_hygiene(hygiene_points)
+    self.hygiene = self.hygiene - hygiene_points
+  end
+
 end
