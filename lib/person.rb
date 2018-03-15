@@ -21,11 +21,14 @@ class Person
 
 	def hygiene=(val)
 		@hygiene = val
-		if @hygiene > 10
-			@hygiene = 10
-		elsif @hygiene < 0
-			@hygiene = 0
-		end
+		# if @hygiene > 10
+		# 	@hygiene = 10
+		# elsif @hygiene < 0
+		# 	@hygiene = 0
+		# end
+		@hygiene > 10 ? @hygiene = 10
+		@hygiene < 0? @hygiene = 0
+
 	end
 
 
