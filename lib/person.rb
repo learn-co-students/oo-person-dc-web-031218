@@ -5,11 +5,19 @@ class Person
   attr_reader :name, :happiness, :hygiene
   attr_accessor :bank_account
 
+  @@all = []
+
+  def self.all
+    @@all
+  end
+
   def initialize(name)
     @name = name
     @bank_account = 25
     @happiness = 8
     @hygiene = 8
+
+    @@all << self
   end
 
   def hygiene=(num)
@@ -81,3 +89,5 @@ class Person
         end
     end
 end
+
+Pry.start
